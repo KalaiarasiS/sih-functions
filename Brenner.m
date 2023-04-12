@@ -1,0 +1,9 @@
+function f=Brenner(Image)
+[M N] = size(Image);
+DH = Image;
+DV = Image;
+DH(1:M-2,:) = diff(Image,2,1);
+DV(:,1:N-2) = diff(Image,2,2);
+FM1 = max(DH, DV);        
+FM1 = FM1.^2;
+f = mean2(FM1);
